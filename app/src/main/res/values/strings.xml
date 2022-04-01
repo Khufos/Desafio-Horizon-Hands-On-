@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">handsKhufos</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="lista_de_pacientes">lista de pacientes</string>
+    <string name="ficha_m_dica">FICHA MÉDICA</string>
+    <string name="select">Select Item</string>
+    <string name="save">Save</string>
+    <string name="digite_seu_nome">Digite seu nome</string>
+
+</resources>
