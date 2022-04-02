@@ -126,7 +126,7 @@ public class DBHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM pacientes_horizon where nome=?",new String[]{nome});
         if(cursor.getCount() == 1){
-            Toast.makeText(context, "Login Já Existe", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Usuario Já Existe", Toast.LENGTH_SHORT).show();
         }
 
     }

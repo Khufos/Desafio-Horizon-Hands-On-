@@ -63,7 +63,7 @@ public class UpdateActivity4 extends AppCompatActivity {
                     myDB.updateData(id, nome, idade, temperatura, tosse, dor, pais, semanas, status);
                     Snackbar.make(view, "Campo Modificado com sucesso!", Snackbar.LENGTH_SHORT).show();
                 }catch (Exception error1){
-                    Snackbar.make(view, "Esse Login Já exite no banco de dados ", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(view, "Esse Usuario Já exite no banco de dados ", Snackbar.LENGTH_SHORT).show();
                     error1.printStackTrace();
                 }
 
