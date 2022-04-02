@@ -1,11 +1,14 @@
 package com.example.hands;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -47,19 +50,22 @@ public class UpdateActivity4 extends AppCompatActivity {
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                nome = id_nome.getText().toString().trim();
-                idade = id_idade.getText().toString().trim();
-                temperatura = id_temperatura.getText().toString().trim();
-                tosse = id_tosse.getText().toString().trim();
-                dor = id_dor.getText().toString().trim();
-                pais = id_pais.getText().toString().trim();
-                semanas = id_semanas.getText().toString().trim();
-                status = id_status.getText().toString().trim();
-                DBHandler myDB = new DBHandler(UpdateActivity4.this);
-                myDB.updateData(id,nome,idade,temperatura,tosse,dor,pais,semanas,status);
-                Snackbar.make(view, "Campo Modificado com sucesso!", Snackbar.LENGTH_SHORT).show();
-
+                try {
+                    nome = id_nome.getText().toString().trim();
+                    idade = id_idade.getText().toString().trim();
+                    temperatura = id_temperatura.getText().toString().trim();
+                    tosse = id_tosse.getText().toString().trim();
+                    dor = id_dor.getText().toString().trim();
+                    pais = id_pais.getText().toString().trim();
+                    semanas = id_semanas.getText().toString().trim();
+                    status = id_status.getText().toString().trim();
+                    DBHandler myDB = new DBHandler(UpdateActivity4.this);
+                    myDB.updateData(id, nome, idade, temperatura, tosse, dor, pais, semanas, status);
+                    Snackbar.make(view, "Campo Modificado com sucesso!", Snackbar.LENGTH_SHORT).show();
+                }catch (Exception error1){
+                    Snackbar.make(view, "Esse Login Já exite no banco de dados ", Snackbar.LENGTH_SHORT).show();
+                    error1.printStackTrace();
+                }
 
                 }
         });

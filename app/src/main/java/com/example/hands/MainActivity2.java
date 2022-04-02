@@ -74,13 +74,12 @@ public class MainActivity2 extends AppCompatActivity {
         String nomep = idnome.getText().toString();
         DBHandler myDB = new DBHandler(MainActivity2.this);
         myDB.revien(nomep);
-        Snackbar.make(view,"Login Duplicado",Snackbar.LENGTH_SHORT).show();
     }
 
 
 
     private void RadioButtonSelecionar(View view) {
-        String nome = idnome.getText().toString();
+        String nome = idnome.getText().toString().toLowerCase();
         int idade = Integer.parseInt(idnasc.getText().toString());
         int temperatura = Integer.parseInt(idtemp.getText().toString());
         int tosse = Integer.parseInt(idtosse.getText().toString());
@@ -94,22 +93,16 @@ public class MainActivity2 extends AppCompatActivity {
         List<String> lista = Arrays.asList(items);
 
         if (lista.contains(paisp) && semana == 6 && temperatura > 37 && tosse > 5 && dor > 5) {
-             DB.addTB(nome,idade,temperatura,tosse,dor,paisp ,semana,"O paciente deve ser internado para tratamento");
-            Snackbar.make(view, "O paciente deve ser enviado à quarentena 1 " , Snackbar.LENGTH_SHORT).show();
-        } else if (lista.contains(paisp) & semana == 6 & dor > 3 &  tosse > 5 & temperatura > 3 && idade > 60 | idade < 10) {
-            DB.addTB(nome,idade,temperatura,tosse,dor,"Italia",semana,"O paciente deve ser enviado à quarentena");
-            Snackbar.make(view, " O paciente deve ser enviado à quarentena  2 ", Snackbar.LENGTH_SHORT).show();
+            DB.addTB(nome, idade, temperatura, tosse, dor, paisp, semana, "Paciente deve ser internado para tratamento");
+        } else if (lista.contains(paisp) & semana == 6 & dor > 3 & tosse > 5 & temperatura > 3 && idade > 60 | idade < 10) {
+            DB.addTB(nome, idade, temperatura, tosse, dor, "Italia", semana, "Paciente deve ser enviado à quarentena");
         } else if (lista.contains(paisp) & semana == 6 & dor > 5 & tosse > 5 & idade >= 10 & idade <= 60) {
-            Snackbar.make(view, " O paciente deve ser enviado à quarentena  3", Snackbar.LENGTH_SHORT).show();
-            DB.addTB(nome,idade,temperatura,tosse,dor,"Italia",semana,"O paciente deve ser enviado à quarentena lv2");
-        } else if(lista.contains(paisp) && semana < 6 && dor < 3 & tosse < 5 & temperatura < 3 & temperatura < 37 & idade > 1 ){
-            Snackbar.make(view, "O paciente deve ser liberado", Snackbar.LENGTH_SHORT).show();
-            DB.addTB(nome,idade,temperatura,tosse,dor,paisp,semana,"Paciente Liberado");
-        }else{
-            Snackbar.make(view, "O paciente deve ser liberado", Snackbar.LENGTH_SHORT).show();
-            DB.addTB(nome,idade,temperatura,tosse,dor,paisp,semana,"Paciente Liberado");
+            DB.addTB(nome, idade, temperatura, tosse, dor, "Italia", semana, "Paciente em Observação");
+        } else if (lista.contains(paisp) && semana < 6 && dor < 3 & tosse < 5 & temperatura < 3 & temperatura < 37 & idade > 1) {
+            DB.addTB(nome, idade, temperatura, tosse, dor, paisp, semana, "Paciente Liberado");
+        } else {
+            DB.addTB(nome, idade, temperatura, tosse, dor, paisp, semana, "Paciente Liberado");
         }
-
 
 
     }

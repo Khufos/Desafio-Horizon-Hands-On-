@@ -38,6 +38,7 @@
                 android:hint="Name"
                 android:inputType="textPersonName"
                 android:layout_height="wrap_content"
+                android:textAllCaps="true"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
