@@ -50,7 +50,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
     public void btnAdd(View v) {
-        String nomep = idnome.getText().toString();
+        String nomep = idnome.getText().toString().toLowerCase();
         String idadep = idnasc.getText().toString();
         String temperaturap = idtemp.getText().toString();
         String tossep = idtosse.getText().toString();
@@ -71,7 +71,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
     public void btc(View view){
-        String nomep = idnome.getText().toString();
+        String nomep = idnome.getText().toString().toLowerCase();
         DBHandler myDB = new DBHandler(MainActivity2.this);
         myDB.revien(nomep);
     }
@@ -93,15 +93,15 @@ public class MainActivity2 extends AppCompatActivity {
         List<String> lista = Arrays.asList(items);
 
         if (lista.contains(paisp) && semana == 6 && temperatura > 37 && tosse > 5 && dor > 5) {
-            DB.addTB(nome, idade, temperatura, tosse, dor, paisp, semana, "Paciente deve ser internado para tratamento");
+            DB.addTB(nome.toLowerCase(), idade, temperatura, tosse, dor, paisp, semana, "Paciente deve ser internado para tratamento");
         } else if (lista.contains(paisp) & semana == 6 & dor > 3 & tosse > 5 & temperatura > 3 && idade > 60 | idade < 10) {
-            DB.addTB(nome, idade, temperatura, tosse, dor, "Italia", semana, "Paciente deve ser enviado à quarentena");
+            DB.addTB(nome.toLowerCase(), idade, temperatura, tosse, dor, "Italia", semana, "Paciente deve ser enviado à quarentena");
         } else if (lista.contains(paisp) & semana == 6 & dor > 5 & tosse > 5 & idade >= 10 & idade <= 60) {
-            DB.addTB(nome, idade, temperatura, tosse, dor, "Italia", semana, "Paciente em Observação");
+            DB.addTB(nome.toLowerCase(), idade, temperatura, tosse, dor, "Italia", semana, "Paciente em Observação");
         } else if (lista.contains(paisp) && semana < 6 && dor < 3 & tosse < 5 & temperatura < 3 & temperatura < 37 & idade > 1) {
-            DB.addTB(nome, idade, temperatura, tosse, dor, paisp, semana, "Paciente Liberado");
+            DB.addTB(nome.toLowerCase(), idade, temperatura, tosse, dor, paisp, semana, "Paciente Liberado");
         } else {
-            DB.addTB(nome, idade, temperatura, tosse, dor, paisp, semana, "Paciente Liberado");
+            DB.addTB(nome.toLowerCase(), idade, temperatura, tosse, dor, paisp, semana, "Paciente Liberado");
         }
 
 

@@ -51,7 +51,7 @@ public class UpdateActivity4 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    nome = id_nome.getText().toString().trim();
+                    nome = id_nome.getText().toString().toLowerCase().trim();
                     idade = id_idade.getText().toString().trim();
                     temperatura = id_temperatura.getText().toString().trim();
                     tosse = id_tosse.getText().toString().trim();
@@ -108,7 +108,8 @@ public class UpdateActivity4 extends AppCompatActivity {
             //-------------------------------------------//
 
             //Set data
-            id_nome.setText(nome);
+
+            id_nome.setText(nome.toLowerCase());
             id_idade.setText(idade);
             id_temperatura.setText(temperatura);
             id_tosse.setText(tosse);

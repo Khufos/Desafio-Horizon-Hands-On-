@@ -56,7 +56,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public boolean addTB( String nome, int idade, int temperatura, int tosse, int dor, String pais, int semana, String status) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME, nome);
+        values.put(COLUMN_NAME, nome.toLowerCase());
         values.put(COLUMN_IDADE, idade);
         values.put(COLUMN_TEMP, temperatura);
         values.put(COLUMN_TOSSE, tosse);
